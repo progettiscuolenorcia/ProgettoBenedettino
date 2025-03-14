@@ -18,14 +18,15 @@
     <link rel="stylesheet" href="assets/css/templatemo-villa-agency.css">
     <link rel="stylesheet" href="assets/css/owl.css">
     <link rel="stylesheet" href="assets/css/animate.css">
-    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-<!--
-
-TemplateMo 591 villa agency
-
-https://templatemo.com/tm-591-villa-agency
-
--->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <style>
+        #pdf-viewer {
+            width: 100%;
+            height: 600px;
+            border: 1px solid #ccc;
+            overflow: auto;
+        }
+    </style>
   </head>
 
 <body>
@@ -81,37 +82,33 @@ https://templatemo.com/tm-591-villa-agency
   <div class="main-banner">
       <div class="item item-1">
         <div class="header-text">
-          <span class="category">Istituto Omnicomprensivo De Gasperi - Battaglia, Norcia</span>
-          <div class="main-banner-background">
-          <h2>L'anniversario della Regola Benedettina:</h2><br><h3>un viaggio tra cultura, territorio e comunità</h3>
-        </div>
+          <span class="category">Liceo Scienze Umane, Istituto Omnicomprensivo De Gasperi - Battaglia, Norcia</span>
+          <div class="main-banner-background"><h2>San Benedetto</h2><h3 style="font-size:1.5em">tra esperienza e preghiera</h3></div>
+          
         </div>
       </div>
 
   </div>
 
-  <div class="featured section">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8">
-          <div class="section-heading">
-            <h2>Il Progetto</h2>
-          </div>
-          <div>           
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas erat justo, placerat id dapibus ut, mollis nec magna. Aliquam auctor nibh id ante viverra vehicula. Quisque aliquet finibus maximus. Praesent id turpis id arcu sagittis suscipit. Donec sit amet feugiat leo. Morbi molestie velit metus, in dictum sapien dictum a. Donec dignissim condimentum nulla ac ullamcorper. Duis hendrerit, diam gravida volutpat feugiat, enim purus vehicula odio, at convallis lorem neque non orci. Ut urna neque, molestie non gravida eget, commodo a ex. Suspendisse fringilla enim eu sem elementum, vel aliquam felis aliquam. Integer accumsan enim tellus, et bibendum est laoreet gravida. In hac habitasse platea dictumst. Ut et est at nisi venenatis congue. Nunc mollis mauris in dignissim aliquet. Nam volutpat dignissim ante, ac interdum diam facilisis at. Suspendisse egestas varius facilisis.
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="left-image">
-            <img src="assets/images/featured.jpg" alt="">
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
 
 
+    <canvas id="pdf-viewer"></canvas>
+
+    <script>
+        const url = './assets/resources/scienzeumane.pdf';  // Replace with your PDF URL
+        pdfjsLib.getDocument(url).promise.then(pdf => {
+            pdf.getPage(1).then(page => {
+                const scale = 1.5;
+                const viewport = page.getViewport({ scale });
+                const canvas = document.getElementById('pdf-viewer');
+                const context = canvas.getContext('2d');
+                canvas.width = viewport.width;
+                canvas.height = viewport.height;
+                const renderContext = { canvasContext: context, viewport };
+                page.render(renderContext);
+            });
+        });
+    </script>
 
 
   <footer>
