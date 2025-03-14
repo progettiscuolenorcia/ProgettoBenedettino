@@ -18,7 +18,6 @@
     <link rel="stylesheet" href="assets/css/templatemo-villa-agency.css">
     <link rel="stylesheet" href="assets/css/owl.css">
     <link rel="stylesheet" href="assets/css/animate.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
     <style>
         #pdf-viewer {
             width: 100%;
@@ -54,13 +53,13 @@
                     <a href="index.html" class="logo">
                         <h2>PROGETTO BENEDETTINO</h2>
                     </a>
-                    <ul class="nav">
+                    <ul class="nav" style="margin-right: 5%">
                       <li><a href="index.html" class="active">Home</a></li>
                       <li class="dropdown">
                         <a>Indirizzi <i class="fa fa-caret-down"></i></a>
                         <ul class="dropdown-content">
                           <li><a href="liceoclassico.html">Liceo Classico</a></li>
-                          <li><a href="sistemi-informativi.html">Sistemi Informativi Aziendali</a></li>
+                          <li><a href="sistemiinformativi.html">Sistemi Informativi Aziendali</a></li>
                           <li><a href="turistico.html">Turistico</a></li>
                           <li><a href="costruzioni.html">Costruzioni, Ambiente e Territorio</a></li>
                           <li><a href="liceoscienzeumane.html">Liceo delle Scienze Umane</a></li>
@@ -83,7 +82,7 @@
       <div class="item item-1">
         <div class="header-text">
           <span class="category">Liceo Scienze Umane, Istituto Omnicomprensivo De Gasperi - Battaglia, Norcia</span>
-          <div class="main-banner-background"><h2>San Benedetto</h2><h3 style="font-size:1.5em">tra esperienza e preghiera</h3></div>
+          <div class="main-banner-background"><h2 style="font-size:3em">San Benedetto</h2><h3 style="font-size:1.5em">tra esperienza e preghiera</h3></div>
           
         </div>
       </div>
@@ -91,24 +90,10 @@
   </div>
 
 
+  <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <embed src="assets/resources/scienzeumane.pdf" type="application/pdf" width="60%" height="600px">
+  </div>
 
-    <canvas id="pdf-viewer"></canvas>
-
-    <script>
-        const url = './assets/resources/scienzeumane.pdf';  // Replace with your PDF URL
-        pdfjsLib.getDocument(url).promise.then(pdf => {
-            pdf.getPage(1).then(page => {
-                const scale = 1.5;
-                const viewport = page.getViewport({ scale });
-                const canvas = document.getElementById('pdf-viewer');
-                const context = canvas.getContext('2d');
-                canvas.width = viewport.width;
-                canvas.height = viewport.height;
-                const renderContext = { canvasContext: context, viewport };
-                page.render(renderContext);
-            });
-        });
-    </script>
 
 
   <footer>
